@@ -3,8 +3,9 @@
 <%= render @restaurant %>
 
 <div>
-  <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) %> |
+<%# policy(@restaurant).edit? testar a instância e o usuário dentro do policy para verificar se apresenta o button ou não %>
+  <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) if policy(@restaurant).edit? %> |
   <%= link_to "Back to restaurants", restaurants_path %>
-
-  <%= button_to "Destroy this restaurant", @restaurant, method: :delete %>
+<%# policy(@restaurant).edit? testar a instância e o usuário dentro do policy para verificar se apresenta o button ou não %>
+  <%= button_to "Destroy this restaurant", @restaurant, method: :delete if policy(@restaurant).destroy? %>
 </div>

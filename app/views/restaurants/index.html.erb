@@ -11,4 +11,6 @@
   <% end %>
 </div>
 
-<%= link_to "New restaurant", new_restaurant_path %>
+<%# Caso seja necessário verificar se uma pessoa pode criar um restaurante, nesse caso enviar a class como "instância" %>
+<%# apenas para identificar em qual policy será executado o metodo new %>
+<%= link_to "New restaurant", new_restaurant_path if policy(Restaurant).new? %>
